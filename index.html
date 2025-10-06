@@ -1,25 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tables Fun</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tables Fun — Additions & Multiplications</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Tables Fun" />
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="app">
-        <h1>Tables Fun 🎲</h1>
-        <div id="game">
-            <p id="question"></p>
-            <input type="number" id="answer" placeholder="Ta réponse">
-            <button id="validate">Valider</button>
-            <p id="feedback"></p>
+  <main class="app">
+    <header>
+      <h1>Tables Fun 🎲</h1>
+      <p class="subtitle">Choisis un mode et amuse-toi !</p>
+    </header>
+
+    <section id="menu" class="screen active">
+      <div class="menuButtons">
+        <button class="bigBtn" data-mode="add">➕ Additions</button>
+        <button class="bigBtn" data-mode="mul">✖️ Multiplications</button>
+        <button class="bigBtn" data-mode="mix">🔀 Mixte</button>
+      </div>
+
+      <div class="row controls">
+        <label>Niveau :
+          <select id="startLevel">
+            <option value="easy">Facile (0–5)</option>
+            <option value="medium" selected>Moyen (0–10)</option>
+            <option value="hard">Difficile (0–20)</option>
+          </select>
+        </label>
+
+        <label>Son :
+          <input type="checkbox" id="soundToggle" checked>
+        </label>
+      </div>
+    </section>
+
+    <section id="game" class="screen">
+      <div class="topInfo">
+        <div class="score">Score : <span id="score">0</span></div>
+        <div class="progress">Q : <span id="qnum">0</span>/10</div>
+      </div>
+
+      <div class="question" id="question">Prêt ?</div>
+      <div class="choices" id="choices"></div>
+
+      <div id="feedback" class="feedback"></div>
+      <div class="row" style="justify-content:center;margin-top:12px;">
+        <button id="quitBtn" class="btn">⏹️ Abandonner</button>
+      </div>
+    </section>
+
+    <section id="result" class="screen">
+      <div class="resultCard">
+        <h2>Score final</h2>
+        <div class="finalScore" id="finalScore">0 / 10</div>
+        <div id="resultMsg" class="resultMsg"></div>
+        <div class="row">
+          <button id="menuBtn" class="btn primary">↩️ Retour au menu</button>
+          <button id="retryBtn" class="btn">🔁 Rejouer même mode</button>
         </div>
-        <div id="scoreboard">Score : <span id="score">0</span></div>
-    </div>
-    <audio id="successSound" src="sounds/success.mp3" preload="auto"></audio>
-    <audio id="failSound" src="sounds/fail.mp3" preload="auto"></audio>
-    <script src="app.js"></script>
+      </div>
+    </section>
+
+    <footer class="footerNote">Installe l'app sur iPad : Safari → Partager → Ajouter à l’écran d’accueil</footer>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(err => {
+        console.log('SW registration failed:', err);
+      });
+    }
+  </script>
 </body>
 </html>
