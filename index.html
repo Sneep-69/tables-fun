@@ -3,38 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tables Fun — v3</title>
+  <title>Tables Fun — Additions & Multiplications</title>
+
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Tables Fun" />
   <link rel="apple-touch-icon" href="icon-192.png">
+
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background">
-    <div class="wave w1"></div>
-    <div class="wave w2"></div>
-    <div class="wave w3"></div>
-  </div>
-
   <main class="app">
     <header>
       <h1>Tables Fun 🎲</h1>
-      <p class="subtitle">Apprends en t'amusant — choisis un mode</p>
+      <p class="subtitle">Choisis un mode et amuse-toi !</p>
     </header>
 
     <section id="menu" class="screen active">
-      <div class="playerRow">
-        <label>Nom du joueur :
-          <input id="playerName" placeholder="Ton prénom"/>
-        </label>
-        <button id="saveName" class="btn small">✓</button>
-        <div class="musicControl">
-          <button id="musicToggle" class="btn small">🔈 Musique</button>
-        </div>
-      </div>
-
       <div class="menuButtons">
         <button class="bigBtn" data-mode="add">➕ Additions</button>
         <button class="bigBtn" data-mode="mul">✖️ Multiplications</button>
@@ -49,21 +35,10 @@
             <option value="hard">Difficile (0–20)</option>
           </select>
         </label>
-        <label>Son effets :
+
+        <label>Son :
           <input type="checkbox" id="soundToggle" checked>
         </label>
-      </div>
-
-      <div class="leaderboardCard">
-        <div class="tabs">
-          <button class="tab active" data-tab="add">Additions</button>
-          <button class="tab" data-tab="mul">Multiplications</button>
-          <button class="tab" data-tab="mix">Mixte</button>
-        </div>
-        <div class="scores" id="scoresArea"></div>
-        <div style="text-align:center;margin-top:8px;">
-          <button id="clearScores" class="btn">🗑️ Effacer les scores</button>
-        </div>
       </div>
     </section>
 
@@ -75,8 +50,8 @@
 
       <div class="question" id="question">Prêt ?</div>
       <div class="choices" id="choices"></div>
-      <div id="feedback" class="feedback"></div>
 
+      <div id="feedback" class="feedback"></div>
       <div class="row" style="justify-content:center;margin-top:12px;">
         <button id="quitBtn" class="btn">⏹️ Abandonner</button>
       </div>
@@ -89,11 +64,12 @@
         <div id="resultMsg" class="resultMsg"></div>
         <div class="row">
           <button id="menuBtn" class="btn primary">↩️ Retour au menu</button>
-          <button id="retryBtn" class="btn">🔁 Rejouer</button>
+          <button id="retryBtn" class="btn">🔁 Rejouer même mode</button>
         </div>
       </div>
     </section>
 
+    <footer class="footerNote">Installe l'app sur iPad : Safari → Partager → Ajouter à l’écran d’accueil</footer>
   </main>
 
   <script src="app.js"></script>
