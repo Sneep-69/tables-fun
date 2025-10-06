@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables Fun</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Tables Fun 🎲</h1>
+        <div id="game">
+            <p id="question"></p>
+            <input type="number" id="answer" placeholder="Ta réponse">
+            <button id="validate">Valider</button>
+            <p id="feedback"></p>
+        </div>
+        <div id="scoreboard">Score : <span id="score">0</span></div>
+    </div>
+    <audio id="successSound" src="sounds/success.mp3" preload="auto"></audio>
+    <audio id="failSound" src="sounds/fail.mp3" preload="auto"></audio>
+    <script src="app.js"></script>
+</body>
+</html>
